@@ -1,0 +1,132 @@
+
+header{
+	margin:0px auto;
+	font-family:Verdana, Geneva, sans-serif;
+	line-height:normal;
+	background-repeat:repeat-x;
+}
+a:link{
+	color:#979797;
+	text-decoration:none;
+}
+a:visited{
+	color:#979797;
+	text-decoration:none;
+}
+a:hover{
+	color:#fff;
+	text-decoration:none;
+}
+#header{
+	width:100%;
+	border-top: 5px solid #C00;
+	border-bottom: 3px solid #000;
+	/*background-image:url(../img/bg_header-09.jpg);*/
+	background: #393939; /* Old browsers */
+	background: -moz-linear-gradient(top,  #393939 0%, #4C4C4C 30%); /* FF3.6+ */
+	background: -webkit-gradient(linear, top, color-stop(0%,#393939), color-stop(30%,#4C4C4C)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #393939 0%,#4C4C4C 30%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #393939 0%,#4C4C4C 30%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #393939 0%,#4C4C4C 30%); /* IE10+ */
+	background: linear-gradient(to bottom,  #393939 0%,#4C4C4C 30%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#393939', endColorstr='#4C4C4C',GradientType=1 ); /* IE6-9 */
+	position:fixed;
+	z-index:9999;
+}
+#header #lefth{
+	width:auto;
+	float:left;
+}
+#header #righth{
+	width:366px;
+	float:right;
+}
+#head{
+	color:#b1b1b1;
+	font-size:12px;
+	margin:20px;
+
+}
+#head td{
+	border-left:solid #333 1px;
+	border-right:solid #666 1px;
+	padding: 0px 12px;
+}
+#head td:first-child{
+	border-left:none;
+}
+#head td:last-child{
+	border-right:none;
+}
+#contentheader{
+	width:100%;
+	height:100px;
+	padding-top:20px;
+	background-image:url(../img/bg-banner-22.png);
+	background-position:center;
+	background-repeat:no-repeat;
+    padding-top:20px;
+
+}
+#login{
+	margin-bottom: 15px;
+	color:#333;
+	font-size:14px;
+	text-align: right;
+}
+#login img {
+	width: 100%;
+	height: auto;
+}
+.btn2{
+	color:#979797;
+}
+.btn2:hover{
+	color:#fff;
+	cursor:pointer;
+}
+#logout {
+	margin-right: 20px;
+}
+
+#container {
+	overflow: hidden;
+}
+@media only screen and (max-width : 960px) {
+	#header #lefth {
+		width: 60%;
+		float: left;
+	}
+	#header #righth {
+		width: 40%;
+		float: left;
+		background-size: 100%;
+	}
+	#head {
+		width: 95%;
+		margin: 2.5%;
+	}
+	#head td {
+		display: block;
+		float: left;
+		border: none;
+		padding: 0 2.5%;
+	}
+	#head td.date {
+		width: 25%;
+		min-height: 46px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #333;
+	}
+	#head td.welcome {
+		width: 65%;
+		min-height: 46px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #333;
+	}
+	#head td.headBtn {
+		width: 20%;
+		padding-top: 10px;
+		border-top: 1px solid #666;
+	}
+}

@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PartnerNewsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="PartnerNewsModelStoreContainer">
+          <EntitySet Name="Articulo" EntityType="PartnerNewsModel.Store.Articulo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Datos_usuario" EntityType="PartnerNewsModel.Store.Datos_usuario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Edicion" EntityType="PartnerNewsModel.Store.Edicion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Idioma" EntityType="PartnerNewsModel.Store.Idioma" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Seccion" EntityType="PartnerNewsModel.Store.Seccion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Seccion_detalle" EntityType="PartnerNewsModel.Store.Seccion_detalle" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tipo_Edicion" EntityType="PartnerNewsModel.Store.Tipo_Edicion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Version" EntityType="PartnerNewsModel.Store.Version" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Articulos_Evento" EntityType="PartnerNewsModel.Store.Articulos_Evento" store:Type="Views" store:Schema="dbo" store:Name="Articulos_Evento">
+            <DefiningQuery>SELECT 
+      [Articulos_Evento].[Id] AS [Id], 
+      [Articulos_Evento].[Edicion] AS [Edicion], 
+      [Articulos_Evento].[Id_Version] AS [Id_Version]
+      FROM [dbo].[Articulos_Evento] AS [Articulos_Evento]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="Articulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Version" Type="int" Nullable="false" />
+          <Property Name="Titulo" Type="varchar" MaxLength="300" />
+          <Property Name="Contenido" Type="varchar(max)" />
+          <Property Name="Idioma" Type="int" Nullable="false" />
+          <Property Name="Seccion" Type="int" Nullable="false" />
+          <Property Name="Seccion_detalle" Type="int" />
+          <Property Name="Edicion" Type="varchar" MaxLength="50" />
+          <Property Name="Top_new" Type="varchar" MaxLength="3" />
+          <Property Name="Visible" Type="varchar" MaxLength="3" />
+          <Property Name="Destacada" Type="varchar" MaxLength="3" />
+          <Property Name="Editorial" Type="varchar" MaxLength="3" />
+          <Property Name="fecha_creacion" Type="datetime" />
+          <Property Name="fecha_editado" Type="datetime" />
+          <Property Name="creador" Type="int" />
+        </EntityType>
+        <EntityType Name="Datos_usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="200" />
+          <Property Name="email" Type="varchar" MaxLength="150" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="varchar" MaxLength="10" />
+          <Property Name="ultima_conexion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Edicion">
+          <Key>
+            <PropertyRef Name="Id_Version" />
+            <PropertyRef Name="Id_Toque" />
+            <PropertyRef Name="Id_Edicion" />
+          </Key>
+          <Property Name="Id_Version" Type="int" Nullable="false" />
+          <Property Name="Id_Toque" Type="int" Nullable="false" />
+          <Property Name="Articulos" Type="varchar" MaxLength="100" />
+          <Property Name="Id_Edicion" Type="int" Nullable="false" />
+          <Property Name="Idioma" Type="int" />
+        </EntityType>
+        <EntityType Name="Idioma">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Seccion">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="idioma" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="varchar" MaxLength="3" />
+          <Property Name="fecha_actualizacion" Type="datetime" />
+          <Property Name="idioma" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Seccion_detalle">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Id_seccion" />
+            <PropertyRef Name="idioma" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_seccion" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="estado" Type="varchar" MaxLength="3" />
+          <Property Name="fecha_actualizacion" Type="datetime" />
+          <Property Name="idioma" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Edicion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+          <Property Name="estado" Type="varchar" MaxLength="3" />
+          <Property Name="fecha_actualizacion" Type="datetime" />
+          <Property Name="idioma" Type="int" />
+        </EntityType>
+        <EntityType Name="Version">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="toque" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="mes" Type="varchar" MaxLength="50" />
+          <Property Name="anio" Type="int" />
+          <Property Name="toque" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'C:\USERS\WILLIAM\DOCUMENTS\VISUAL STUDIO 2012\PROJECTS\PARTNERNEWS\PARTNERNEWS\APP_DATA\PARTNERNEWS.MDF.dbo.Articulos_Evento' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="Articulos_Evento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Edicion" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Version" Type="int" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PartnerNewsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PartnerNewsEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Articuloes" EntityType="PartnerNewsModel.Articulo" />
+          <EntitySet Name="Datos_usuario" EntityType="PartnerNewsModel.Datos_usuario" />
+          <EntitySet Name="Edicions" EntityType="PartnerNewsModel.Edicion" />
+          <EntitySet Name="Idiomas" EntityType="PartnerNewsModel.Idioma" />
+          <EntitySet Name="Seccions" EntityType="PartnerNewsModel.Seccion" />
+          <EntitySet Name="Seccion_detalle" EntityType="PartnerNewsModel.Seccion_detalle" />
+          <EntitySet Name="Tipo_Edicion" EntityType="PartnerNewsModel.Tipo_Edicion" />
+          <EntitySet Name="Versions" EntityType="PartnerNewsModel.Version" />
+          <EntitySet Name="Articulos_Evento" EntityType="PartnerNewsModel.Articulos_Evento" />
+        </EntityContainer>
+        <EntityType Name="Articulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Version" Type="Int32" Nullable="false" />
+          <Property Name="Titulo" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Contenido" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Idioma" Type="Int32" Nullable="false" />
+          <Property Name="Seccion" Type="Int32" Nullable="false" />
+          <Property Name="Seccion_detalle" Type="Int32" />
+          <Property Name="Edicion" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Top_new" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="Visible" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="Destacada" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="Editorial" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="fecha_creacion" Type="DateTime" Precision="3" />
+          <Property Name="fecha_editado" Type="DateTime" Precision="3" />
+          <Property Name="creador" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Datos_usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="estado" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="ultima_conexion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Edicion">
+          <Key>
+            <PropertyRef Name="Id_Version" />
+            <PropertyRef Name="Id_Toque" />
+            <PropertyRef Name="Id_Edicion" />
+          </Key>
+          <Property Name="Id_Version" Type="Int32" Nullable="false" />
+          <Property Name="Id_Toque" Type="Int32" Nullable="false" />
+          <Property Name="Articulos" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Id_Edicion" Type="Int32" Nullable="false" />
+          <Property Name="Idioma" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Idioma">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Seccion">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="idioma" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="estado" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="fecha_actualizacion" Type="DateTime" Precision="3" />
+          <Property Name="idioma" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Seccion_detalle">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Id_seccion" />
+            <PropertyRef Name="idioma" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_seccion" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="estado" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="fecha_actualizacion" Type="DateTime" Precision="3" />
+          <Property Name="idioma" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Edicion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="estado" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="fecha_actualizacion" Type="DateTime" Precision="3" />
+          <Property Name="idioma" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Version">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="toque" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="mes" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="anio" Type="Int32" />
+          <Property Name="toque" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Articulos_Evento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Edicion" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Id_Version" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PartnerNewsModelStoreContainer" CdmEntityContainer="PartnerNewsEntities">
+          <EntitySetMapping Name="Articuloes">
+            <EntityTypeMapping TypeName="PartnerNewsModel.Articulo">
+              <MappingFragment StoreEntitySet="Articulo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Version" ColumnName="Id_Version" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+                <ScalarProperty Name="Idioma" ColumnName="Idioma" />
+                <ScalarProperty Name="Seccion" ColumnName="Seccion" />
+                <ScalarProperty Name="Seccion_detalle" ColumnName="Seccion_detalle" />
+                <ScalarProperty Name="Edicion" ColumnName="Edicion" />
+                <ScalarProperty Name="Top_new" ColumnName="Top_new" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="Destacada" ColumnName="Destacada" />
+                <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+                <ScalarProperty Name="fecha_editado" ColumnName="fecha_editado" />
+                <ScalarProperty Name="creador" ColumnName="creador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Datos_usuario">
+            <EntityTypeMapping TypeName="PartnerNewsModel.Datos_usuario">
+              <MappingFragment StoreEntitySet="Datos_usuario">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="ultima_conexion" ColumnName="ultima_conexion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edicions">
+            <EntityTypeMapping TypeName="PartnerNewsModel.Edicion">
+              <MappingFragment StoreEntitySet="Edicion">
+                <ScalarProperty Name="Id_Version" ColumnName="Id_Version" />
+                <ScalarProperty Name="Id_Toque" ColumnName="Id_Toque" />
+                <ScalarProperty Name="Articulos" ColumnName="Articulos" />
+                <ScalarProperty Name="Id_Edicion" ColumnName="Id_Edicion" />
+                <ScalarProperty Name="Idioma" ColumnName="Idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Idiomas">
+            <EntityTypeMapping TypeName="PartnerNewsModel.Idioma">
+              <MappingFragment StoreEntitySet="Idioma">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seccions">
+            <EntityTypeMapping TypeName="PartnerNewsModel.Seccion">
+              <MappingFragment StoreEntitySet="Seccion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fecha_actualizacion" ColumnName="fecha_actualizacion" />
+                <ScalarProperty Name="idioma" ColumnName="idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seccion_detalle">
+            <EntityTypeMapping TypeName="PartnerNewsModel.Seccion_detalle">
+              <MappingFragment StoreEntitySet="Seccion_detalle">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_seccion" ColumnName="Id_seccion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fecha_actualizacion" ColumnName="fecha_actualizacion" />
+                <ScalarProperty Name="idioma" ColumnName="idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Edicion">
+            <EntityTypeMapping TypeName="PartnerNewsModel.Tipo_Edicion">
+              <MappingFragment StoreEntitySet="Tipo_Edicion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fecha_actualizacion" ColumnName="fecha_actualizacion" />
+                <ScalarProperty Name="idioma" ColumnName="idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Versions">
+            <EntityTypeMapping TypeName="PartnerNewsModel.Version">
+              <MappingFragment StoreEntitySet="Version">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="mes" ColumnName="mes" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="toque" ColumnName="toque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Articulos_Evento">
+            <EntityTypeMapping TypeName="PartnerNewsModel.Articulos_Evento">
+              <MappingFragment StoreEntitySet="Articulos_Evento">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Edicion" ColumnName="Edicion" />
+                <ScalarProperty Name="Id_Version" ColumnName="Id_Version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
