@@ -16,6 +16,8 @@ namespace PartnerNews.Vista.pages
 
         }
 
+
+
         [WebMethod]
         public static string cargarSecciones()
         {

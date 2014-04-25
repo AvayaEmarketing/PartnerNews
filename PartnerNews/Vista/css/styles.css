@@ -40,6 +40,10 @@
           max-width: 100%;
         }
 
+        #form1 {
+            margin-bottom:15px;
+        }
+
 
 #content {
     width: 100%;
@@ -51,7 +55,16 @@
     font-family: 'proxima_novalight', 'proxima_nova_rgregular', Helvetica, sans-serif!important;
 }
 
+#btnCreate {
+    margin-left:0px !important;
+}
 
+#selmonth, #selyear {
+    text-align: left;
+    width:30%;
+}
+
+ 
 .contentheader {
     width: 100%;
     height: 100px;
@@ -83,4 +96,90 @@ select {
   width: 180px!important;
   background-color: #ffffff;
   border: 1px solid #cccccc!important;
+}
+
+#article_language, #article_section, #article_section_detail {
+  width: 290px!important;
+  background-color: #ffffff;
+  border: 1px solid #cccccc!important;
+}
+
+.modal.fade .modal-dialog2 {
+  -webkit-transform: translate(0, -25%);
+      -ms-transform: translate(0, -25%);
+          transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+     -moz-transition: -moz-transform 0.3s ease-out;
+       -o-transition: -o-transform 0.3s ease-out;
+          transition: transform 0.3s ease-out;
+}
+
+.modal.in .modal-dialog2 {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.modal-dialog2 {
+  position: relative;
+  z-index: 1050;
+  width: auto;
+  padding-top:150px;
+  padding-bottom:30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.modal-body2 {
+  position: relative;
+  padding: 20px;
+  overflow: scroll; 
+}
+
+
+@media (max-width: 499px) { 
+    #article_title {
+        width:243px;
+    }
+
+    .modal-dialog2 {
+        width:243px!important;
+    }
+
+    #article_language, #article_section, #article_section_detail {
+      width: 243px!important;
+      background-color: #ffffff;
+      border: 1px solid #cccccc!important;
+    }
+}
+
+
+@media (min-width: 500px) and (max-width: 720px) { 
+    #article_title {
+        width:478px;
+    }
+
+     .modal-dialog2 {
+        width:478px!important;
+    }
+}
+
+@media (min-width:992px)  and (max-width: 1199px) {
+    #article_title {
+        width:823px;
+    }
+
+    .modal-dialog2 {
+        width:823px!important;
+    }
+}
+
+@media (min-width:1200px){
+    #article_title {
+        width:1000px;
+    }
+
+    .modal-dialog2 {
+        width:1000px!important;
+    }
 }

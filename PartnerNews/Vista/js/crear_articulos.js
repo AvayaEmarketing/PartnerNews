@@ -1,27 +1,4 @@
-﻿//tipo de mensajes ->  default, info, primary, sucess, warning, danger
-function message(texto, titulo, tipo) {
-    BootstrapDialog.show({
-        title: titulo,
-        message: texto,
-        cssClass: 'type-' + tipo
-    });
-    return false;
-}
-
-var myApp;
-myApp = myApp || (function () {
-    var pleaseWaitDiv = $('<div class="modal hide" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false"><div class="modal-header"><h1>Processing...</h1></div><div class="modal-body"><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div></div>');
-
-    return {
-        showPleaseWait: function () {
-            pleaseWaitDiv.modal();
-        },
-        hidePleaseWait: function () {
-            pleaseWaitDiv.modal('hide');
-        },
-
-    };
-})();
+﻿
 
 function cargarSecciones() {
     $("#article_section").html("");
@@ -181,10 +158,8 @@ function getForm() {
     $('#ediciones :checkbox:checked').each(function () {
         valores2 = valores2 + $(this).val() + ',';
     });
-    if ((valores2.substring(valores2.length - 1, valores2.length)) === ',') 
-        valores2 = valores2.substring(0, valores2.length - 1);
+    valores2 = eliminarUltimaComa(valores2);
     
-
     var Edicion = valores2;
     var Top = $("#article_top_new").prop('checked');
     var Top_new = (Top) ? "YES" : "NO";
@@ -202,7 +177,7 @@ function getForm() {
 
     var formulario = new Object();
     //formulario.Id_Version = Id_Version.val();
-    formulario.Id_Version = 1;
+    formulario.Id_Version = QueryString.version;
     formulario.Titulo = Titulo.val();
     formulario.Contenido = Contenido;
     formulario.Idioma = Idioma.val();
@@ -218,18 +193,7 @@ function getForm() {
     return formulario;
 }
 
-function setSelectByValue(eID, val) { //Loop through sequentially//
-    var ele = document.getElementById(eID);
-    for (var ii = 0; ii < ele.length; ii++)
-        if (ele.options[ii].value == val) { //Found!
-            ele.options[ii].selected = true;
-            return true;
-        }
-    return false;
-}
-
-
-function limpiarCampos() {
+function limpiarCamposArticulo() {
    
     CKEDITOR.instances.txtCkEditor.setData('');
     $("#article_title").val('');
@@ -262,13 +226,13 @@ function crearArticulo(formulario) {
                 }, 3000);
             } else if (resultado.d === "ok") {
                 message("Your Article was created successfully", "Partner News", "primary");
-                limpiarCampos();
+                limpiarCamposArticulo();
             } else {
-                message("Alert, please try again","Partner News", "primary");
+                message("Alert, please try again","Partner News", "danger");
             }
         },
         error: function () {
-            message("Alert, please try again", "Partner News", "primary");
+            message("Alert, please try again", "Partner News", "danger");
         }
     });
     return false;
@@ -282,6 +246,8 @@ $(document).ready(function () {
 	  	    jQuery(this).css('padding-right', '1px');
 	  	}
 	);
+
+    
 
     $("#btn_create_article").click(function () {
         formulario = getForm();
@@ -324,8 +290,6 @@ $(document).ready(function () {
             $('#article_editorial').prop('checked', false);
         }
     });
-    
-    
 
 
 });

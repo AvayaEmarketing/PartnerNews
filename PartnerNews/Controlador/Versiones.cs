@@ -34,7 +34,7 @@ namespace PartnerNews.Controlador
                 var contenido = (from ver in listacontenido
                                  select new
                                  {
-                                              //traer el nombre del mes, se envia el id del mes y el id del idioma.
+                                     //traer el nombre del mes, se envia el id del mes y el id del idioma.
                                      nombre = utilidades.getnombreMes(Convert.ToInt32(ver.mes),1) + " " + ver.anio,
                                      Details_t1 = "<a href=\"#\" onclick=\"ver_version(" + ver.Id + "," + 1 +"); return false;\">Admin&nbsp;<img src=\"../images/edit.png\"/></a>",
                                      Details_t2 = "<a href=\"#\" onclick=\"ver_version(" + ver.Id + "," + 2 +"); return false;\">Admin&nbsp;<img src=\"../images/edit.png\"/></a>",

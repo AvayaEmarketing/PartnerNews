@@ -216,6 +216,17 @@ namespace PartnerNews.Controlador
             return (id == null) ? false : true;
         }
 
+        public string nombreEdiciones(string ediciones) {
+            string nombres = "";
+            string[] edicion = ediciones.Split(',');
+            foreach (string word in edicion)
+	        {
+                nombres += obtenerNombreEdicion(Convert.ToInt32(word)) + ",";
+	        }
+            nombres = utilidades.eliminarComa(nombres);
+            return nombres;
+        }
+
 
 
 

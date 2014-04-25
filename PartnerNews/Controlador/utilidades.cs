@@ -35,8 +35,6 @@ namespace PartnerNews.Controlador
             catch (Exception ex)
             {
                 respuesta = "fail";
-
-
             }
             finally
             {
@@ -78,6 +76,12 @@ namespace PartnerNews.Controlador
                 }
                 return cad;	
 
+        }
+
+        public static string eliminarComa(string entrada) {
+            if (entrada.LastIndexOf(",") == entrada.Length - 1)
+                entrada = entrada.Substring(0, entrada.Length - 1);
+            return entrada;
         }
 
     }

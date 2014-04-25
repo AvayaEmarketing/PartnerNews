@@ -8,63 +8,68 @@
 	<title>AVAYA - Demand Generation Campaigns</title>
     <link href="../css/bootstrap.css" rel="stylesheet"/>
    	<link rel="stylesheet" href="../css/header_style.css"/>
-    <link rel="stylesheet" href="../css/version.css"/>
+    <link rel="stylesheet" href="../css/styles.css"/>
     <link href="../css/bootstrap-dialog.css" rel="stylesheet" type="text/css" />
     <link href="../css/DT_bootstrap.css" rel="stylesheet" type="text/css"/>
-    <%--<link href="../css/bootstrap-only-message.css" rel="stylesheet" type="text/css" />--%>
-
     <script type="text/javascript" src="../js/jquery.js"></script>
+     <script type="text/javascript" src="../js/modernizr.js"></script>
+    <script type="text/javascript" src="../js/MatchMedia.js"></script>
+    <script type="text/javascript" src="../js/enquire.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap-dialog.js"></script>
     <script type="text/javascript" src="../js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="../js/DT_bootstrap.js"></script>
+    <script type="text/javascript" src="../js/funciones.js"></script>
     <script type="text/javascript" src="../js/Version.js"></script>
 
 </head>
 	
 <body>
     <header>
-		<div id="header">
-			<div id="lefth">
-				<table id="head" cellpadding="0" cellspacing="0" border="0">
-					<tr>
-						<td class="date" align="center">
-							<span style="font-size:23px; color:#979797;" id="date">Mon</span><br />
-							<span style="color:#fff;" >14-</span><span style="color:#fff;" id="month">12</span>
-						</td>
-						<td class="welcome">
-							Welcome<br/>
-							<span style="color:#FFFFFF;" id="userName">Sutanito Godinez<br/></span>
-							Last Seen: 23/03/13
-						</td>
-						<td class="headBtn" align="center">
-							<img src="../images/menu-18.png"/><br />
-							<span class="btn2">My Info</span>
-						</td>
-						<td class="headBtn" align="center">
-							<img src="../images/menu-19.png"/><br />
-							<span class="btn2">Favorites</span>
-						</td>
-						<td class="headBtn" align="center">
-							<img src="../images/menu-20.png"/><br />
-							<span class="btn2">Edit Settings</span>
-						</td>
-						<td class="headBtn" align="center">
-							<img src="../images/menu-21.png"  align="My Info"/><br />
-							<span class="btn2">Sections</span><br />
-						</td>
-					</tr>
-				</table>
-			</div>
-			<div id="righth">
-				<div id="login">
-					<img src="../images/logo-alpha.png" alt="" />
-					<span class="btn2">Home</span> | <span class="btn2" id="logout">Log Out</span>
-				</div>
-			</div>
-		</div>
+		<div id="menu_top">
+            <div id="inner_menu_top">
+                <div id="logo_p_n">
+                    <img src="../images/site-30.jpg" />
+                </div>
+                <div id="buttons_menu_top">
+                    <div class="btn_menu_info">
+                        Bienvenido<br />
+                        <span class="name">Juan Carlos Muñoz Rojas</span><br />
+                        <a href="#" id="goHome">Home</a> - <a href="#" id="logOut">Log Out</a>
+                    </div>
+                    <div id="menu_container">
+                        <a class="linked_menu" href="#">
+                            <div class="btn_menu">
+                                <img src="../images/site-31.jpg" /><br class="dissapear_br" />
+                                My Info
+     
+                            </div>
+                        </a>
+                        <a class="linked_menu" href="#">
+                            <div class="btn_menu">
+                                <img src="../images/site-32.jpg" /><br class="dissapear_br" />
+                                My History
+   
+                            </div>
+                        </a>
+                        <a class="linked_menu" href="#">
+                            <div class="btn_menu">
+                                <img src="../images/site.jpg" /><br class="dissapear_br" />
+                                Edit Seetings
+   
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div id="logo_avaya">
+                    <img src="../images/site-34.jpg" /><br />
+                    March 21 - 2014&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+                </div>
+            </div>
+        </div>
     </header>
-    <section style="position:relative;top:180px;">
+    <section style="position:relative;top:30px;">
     <div class="container">
         <div class="contentheader">
             <h2>Create New Version</h2>
@@ -77,7 +82,7 @@
                         <div class="col-md-4 column">
                             <!-- aqui empieza la primera columna -->
                             <div class="form-group">
-                                <label class="col-lg-5 control-label" for="month_version">Select Month </label>
+                                <label class="col-lg-5 control-label" for="month_version" id="selmonth">Month </label>
                                 <div class="col-lg-5">
                                     <select id="month_version" class="form-control">
                                         <option value="" selected="selected"></option>
@@ -99,7 +104,7 @@
                             </div>
                             <div class="col-md-4 column">
                             <div class="form-group">
-                                <label class="col-lg-5 control-label" for="year_version">Select year </label>
+                                <label class="col-lg-5 control-label" for="year_version" id="selyear">Select year </label>
                                 <div class="col-lg-5">
                                     <select id="year_version" class="form-control">
                                         <option value="" selected="selected"></option>
@@ -113,7 +118,7 @@
                             </div>
                             <div class="col-md-4 column">
                             <div class="control-group">
-                                <div class="controls">
+                                <div class="controls" id="btnCreate">
                                     <button style="top: 0 !important;" type="submit" class="btn btn-danger" id="Register">Create</button>
                                 </div>
                             </div>

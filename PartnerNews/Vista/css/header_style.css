@@ -1,132 +1,170 @@
+body{
+	margin:0px;
+	background-color:#efefef;
+}
 
-header{
-	margin:0px auto;
-	font-family:Verdana, Geneva, sans-serif;
-	line-height:normal;
+header  {
+    width:100%;
+	background-image:url(../images/site-29.jpg);
 	background-repeat:repeat-x;
 }
-a:link{
-	color:#979797;
-	text-decoration:none;
-}
-a:visited{
-	color:#979797;
-	text-decoration:none;
-}
-a:hover{
-	color:#fff;
-	text-decoration:none;
-}
-#header{
+
+#menu_top{
 	width:100%;
-	border-top: 5px solid #C00;
-	border-bottom: 3px solid #000;
-	/*background-image:url(../img/bg_header-09.jpg);*/
-	background: #393939; /* Old browsers */
-	background: -moz-linear-gradient(top,  #393939 0%, #4C4C4C 30%); /* FF3.6+ */
-	background: -webkit-gradient(linear, top, color-stop(0%,#393939), color-stop(30%,#4C4C4C)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #393939 0%,#4C4C4C 30%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #393939 0%,#4C4C4C 30%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #393939 0%,#4C4C4C 30%); /* IE10+ */
-	background: linear-gradient(to bottom,  #393939 0%,#4C4C4C 30%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#393939', endColorstr='#4C4C4C',GradientType=1 ); /* IE6-9 */
-	position:fixed;
-	z-index:9999;
+	background-image:url(../images/site-29.jpg);
+	background-repeat:repeat-x;
 }
-#header #lefth{
-	width:auto;
-	float:left;
-}
-#header #righth{
-	width:366px;
-	float:right;
-}
-#head{
-	color:#b1b1b1;
-	font-size:12px;
-	margin:20px;
+	#logo_p_n{
+		float:left;
+	}
+	#logo_p_n img{
+		margin:12px 0px 12px 15px;
+		padding-right:15px;
+		border-right:solid 1px #b1b1b1;
+		}
+	#buttons_menu_top{
+		float:left;
+	}
+	#logo_avaya{
+		float:right;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:14px;
+		color:#4d4d4d;
+		text-align:right;
+		max-width:291px;
+	}
+	#logo_avaya img{
+		width:100%;
+	}
+	.btn_menu_info{
+		float:left;
+		margin:12px 0px 12px 15px;
+		padding-right:12px;
+		border-right:solid 1px #b1b1b1;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;	
+		color:#b1b1b1;
+	}
+	.btn_menu_info .name{
+		color:#cc0000;
+	}
+	.btn_menu_info a:link, .btn_menu_info a:visited {
+		color:#4d4d4d;
+		text-decoration:underline;
+		
+	}
+	.btn_menu_info a:hover {
+		color:#cc0000;
+		text-decoration:underline;
+	}
+	
+	.btn_menu{
+		float:left;
+		padding:0px 12px;
+		margin:18px 0px;
+		text-align:center;
+		border-right:solid 1px #b1b1b1;
+		
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+	}
+	.linked_menu:link, .linked_menu:visited{
+		color:#b1b1b1;
+		text-decoration:none;
+	}
+	.linked_menu:hover {
+		color:#cc0000;
+		 text-decoration:underline !important;
+		 cursor:pointer;
+	}
+	#menu_container{
+		width:600px;
+	}
+	.highlight{
+		height:160px;
+	}
+	.highlight2{
+		height:60px ;
+	}
+	.highlight3{
+		height:160px ;
+	}
+	.highlight4{
+		height:102px ;
+	}
+	.display{
+		display:block;
+	}
+	.display2{
+		display:none ;
+	}
+	@media only screen and (max-width : 968px) {
+		#logo_avaya img{
+			display:none;
+		}
+		#logo_avaya{
+			background-image:url(../images/site-34-small.jpg);
+			background-repeat:no-repeat;
+			background-size:100%;
+			height:70px;
+			max-width:128px;
+			padding-top:20px;
+		}
+	}
+	
+	
+	@media only screen and (max-width : 800px) {
+		#menu_top{
+			background-image:url(img/site-29x800.jpg);
+		}
+		#logo_p_n{
+			background-image:url(../images/responsive-35.jpg);
+			background-repeat:no-repeat;
+			background-size:100%;
+			height:70px;
+			width:100%;
+		}
+		#logo_p_n img{
+			display:none;
+		}
+		#logo_avaya{
+			display:none;
+		}
+	}
+	@media only screen and (max-width : 450px) {
+		#menu_top{
+			background-image:none;
+			border-bottom:solid 3px #4d4d4d;
+			background-color:#fff;
+		}
+		#logo_p_n{
+			background-image:url(../images/responsive-36.jpg);
+			background-repeat:no-repeat;
+			background-size:100%;
+			height:60px !important;
+		}
+		.btn_menu img{
+			width:10px;
+		}
+		
+        #menu_container {
+		    width:53% !important;
+		    float:left;
+	    }
 
-}
-#head td{
-	border-left:solid #333 1px;
-	border-right:solid #666 1px;
-	padding: 0px 12px;
-}
-#head td:first-child{
-	border-left:none;
-}
-#head td:last-child{
-	border-right:none;
-}
-#contentheader{
-	width:100%;
-	height:100px;
-	padding-top:20px;
-	background-image:url(../img/bg-banner-22.png);
-	background-position:center;
-	background-repeat:no-repeat;
-    padding-top:20px;
-
-}
-#login{
-	margin-bottom: 15px;
-	color:#333;
-	font-size:14px;
-	text-align: right;
-}
-#login img {
-	width: 100%;
-	height: auto;
-}
-.btn2{
-	color:#979797;
-}
-.btn2:hover{
-	color:#fff;
-	cursor:pointer;
-}
-#logout {
-	margin-right: 20px;
-}
-
-#container {
-	overflow: hidden;
-}
-@media only screen and (max-width : 960px) {
-	#header #lefth {
-		width: 60%;
-		float: left;
+		.btn_menu{
+			width:90% !important;
+			margin:1% 4% !important;
+			padding:1% 4% !important;
+			text-align:right;
+			
+		}
+		.btn_menu_info{
+			width:41% !important;
+			margin:1% !important;
+			padding:1% !important;
 	}
-	#header #righth {
-		width: 40%;
-		float: left;
-		background-size: 100%;
+	.dissapear_br{
+		display:none;
 	}
-	#head {
-		width: 95%;
-		margin: 2.5%;
 	}
-	#head td {
-		display: block;
-		float: left;
-		border: none;
-		padding: 0 2.5%;
-	}
-	#head td.date {
-		width: 25%;
-		min-height: 46px;
-		padding-bottom: 10px;
-		border-bottom: 1px solid #333;
-	}
-	#head td.welcome {
-		width: 65%;
-		min-height: 46px;
-		padding-bottom: 10px;
-		border-bottom: 1px solid #333;
-	}
-	#head td.headBtn {
-		width: 20%;
-		padding-top: 10px;
-		border-top: 1px solid #666;
-	}
-}

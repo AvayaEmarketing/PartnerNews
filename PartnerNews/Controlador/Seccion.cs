@@ -23,5 +23,11 @@ namespace PartnerNews.Controlador
             result = new JavaScriptSerializer().Serialize(secciones);
             return result;
         }
+
+        public string nombreSeccion(int seccion)
+        {
+            string nombre = context.Seccions.Where(s => s.Id == seccion && s.idioma == 2).Select(s => s.nombre).FirstOrDefault();
+            return nombre;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="crear_articulos.aspx.cs" Inherits="PartnerNews.Vista.pages.crear_articulos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="editar_articulos.aspx.cs" Inherits="PartnerNews.Vista.pages.editar_articulos" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,6 +24,7 @@
     <script type="text/javascript" src="../js/jquery_editor.js"></script>
     <script type="text/javascript" src="../js/funciones.js"></script>
     <script type="text/javascript" src="../js/crear_articulos.js"></script>
+    <script type="text/javascript" src="../js/editar_articulos.js"></script>
     <script type="text/javascript">
         $(function () {
             CKEDITOR.replace('<%=txtCkEditor.ClientID %>',
@@ -93,7 +94,7 @@
     <section style="position:relative;top:30px;">
     <div class="container">
         <div class="contentheader">
-            <h2>Create Article</h2>
+            <h2>Edit Article</h2>
             <h3>Partner News</h3>
         </div>
         <div class="form-horizontal">
@@ -195,7 +196,7 @@
             <br />
             <div class="form-group">
               <div class="col-md-4">
-                <button id="btn_create_article" name="btn_create_article" class="btn btn-danger">Create Article</button>
+                <button id="btn_edit_article" name="btn_edit_article" class="btn btn-danger">Edit Article</button>
               </div>
             </div>
         </div>  

@@ -67,10 +67,33 @@
     <Content Include="App_Data\PartnerNews_log.ldf">
       <DependentUpon>PartnerNews.mdf</DependentUpon>
     </Content>
+    <Content Include="Vista\css\bootstrap-modal.css" />
+    <Content Include="Vista\images\delete.png" />
+    <Content Include="Vista\images\eye.png" />
+    <Content Include="Vista\js\bootstrap-modal.js" />
+    <Content Include="Vista\js\bootstrap-modalmanager.js" />
+    <Content Include="Vista\js\editar_articulos.js" />
+    <Content Include="Vista\js\MatchMedia.js" />
+    <Content Include="Vista\js\modernizr.js" />
+    <Content Include="Vista\js\ver_articulos.js" />
+    <Content Include="Vista\pages\editar_articulos.aspx" />
+    <Content Include="Vista\pages\testProducts.aspx" />
+    <Content Include="Vista\images\responsive-35.jpg" />
+    <Content Include="Vista\images\responsive-36.jpg" />
+    <Content Include="Vista\images\site-29.jpg" />
+    <Content Include="Vista\images\site-29x800.jpg" />
+    <Content Include="Vista\images\site-30.jpg" />
+    <Content Include="Vista\images\site-31.jpg" />
+    <Content Include="Vista\images\site-32.jpg" />
+    <Content Include="Vista\images\site-34-small.jpg" />
+    <Content Include="Vista\images\site-34.jpg" />
+    <Content Include="Vista\images\site.jpg" />
     <Content Include="index.html" />
     <Content Include="Vista\js\build-config.js" />
     <Content Include="Vista\js\config.js" />
     <Content Include="Vista\js\crear_articulos.js" />
+    <Content Include="Vista\js\enquire.min.js" />
+    <Content Include="Vista\js\funciones.js" />
     <Content Include="Vista\js\lang\af.js" />
     <Content Include="Vista\js\lang\ar.js" />
     <Content Include="Vista\js\lang\bg.js" />
@@ -328,7 +351,7 @@
     <Content Include="Vista\css\images\ui-icons_454545_256x240.png" />
     <Content Include="Vista\css\images\ui-icons_888888_256x240.png" />
     <Content Include="Vista\css\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Vista\css\version.css" />
+    <Content Include="Vista\css\styles.css" />
     <Content Include="Vista\images\bg_header-09.jpg" />
     <Content Include="Vista\images\edit.png" />
     <Content Include="Vista\images\logo-alpha.png" />
@@ -346,10 +369,10 @@
     <Content Include="Vista\js\jquery_editor.js" />
     <Content Include="Vista\js\styles.js" />
     <Content Include="Vista\js\Version.js" />
-    <Content Include="Vista\pages\admin_version.aspx" />
     <Content Include="Vista\pages\crear_articulos.aspx" />
     <Content Include="Vista\pages\service_utilidades.asmx" />
     <Content Include="Vista\pages\Version.aspx" />
+    <Content Include="Vista\pages\ver_articulos.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -359,6 +382,7 @@
     <Compile Include="Controlador\Datos_usuario.cs" />
     <Compile Include="Controlador\Articulo.cs" />
     <Compile Include="Controlador\Edicion.cs" />
+    <Compile Include="Controlador\Idioma.cs" />
     <Compile Include="Controlador\Seccion.cs" />
     <Compile Include="Controlador\Seccion_detalle.cs" />
     <Compile Include="Controlador\Tipo_Edicion.cs" />
@@ -407,12 +431,19 @@
       <DependentUpon>Model_PartnerNews.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vista\pages\admin_version.aspx.cs">
-      <DependentUpon>admin_version.aspx</DependentUpon>
+    <Compile Include="Vista\pages\editar_articulos.aspx.cs">
+      <DependentUpon>editar_articulos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\pages\admin_version.aspx.designer.cs">
-      <DependentUpon>admin_version.aspx</DependentUpon>
+    <Compile Include="Vista\pages\editar_articulos.aspx.designer.cs">
+      <DependentUpon>editar_articulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\pages\testProducts.aspx.cs">
+      <DependentUpon>testProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\pages\testProducts.aspx.designer.cs">
+      <DependentUpon>testProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\pages\crear_articulos.aspx.cs">
       <DependentUpon>crear_articulos.aspx</DependentUpon>
@@ -434,6 +465,13 @@
     </Compile>
     <Compile Include="Vista\pages\Version.aspx.designer.cs">
       <DependentUpon>Version.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\pages\ver_articulos.aspx.cs">
+      <DependentUpon>ver_articulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\pages\ver_articulos.aspx.designer.cs">
+      <DependentUpon>ver_articulos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

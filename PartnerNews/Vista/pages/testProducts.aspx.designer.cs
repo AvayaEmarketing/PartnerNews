@@ -7,9 +7,9 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PartnerNews.Vista.pages {
+namespace PartnerNews {
     
     
-    public partial class admin_version {
+    public partial class testProducts {
     }
 }
