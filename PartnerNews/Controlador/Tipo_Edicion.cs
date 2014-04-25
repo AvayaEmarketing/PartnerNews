@@ -23,5 +23,10 @@ namespace PartnerNews.Controlador
             result = new JavaScriptSerializer().Serialize(tipo_edicion);
             return result;
         }
+
+        public int traerIdIdioma(int edicion) {
+            var idioma = context.Tipo_Edicion.Where(ed => ed.Id == edicion).Select(ed => ed.idioma).FirstOrDefault();
+            return Convert.ToInt32(idioma);
+        }
     }
 }

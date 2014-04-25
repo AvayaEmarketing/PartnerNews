@@ -76,6 +76,7 @@
     <Content Include="Vista\js\MatchMedia.js" />
     <Content Include="Vista\js\modernizr.js" />
     <Content Include="Vista\js\ver_articulos.js" />
+    <Content Include="Vista\js\ver_ediciones.js" />
     <Content Include="Vista\pages\editar_articulos.aspx" />
     <Content Include="Vista\pages\testProducts.aspx" />
     <Content Include="Vista\images\responsive-35.jpg" />
@@ -373,6 +374,7 @@
     <Content Include="Vista\pages\service_utilidades.asmx" />
     <Content Include="Vista\pages\Version.aspx" />
     <Content Include="Vista\pages\ver_articulos.aspx" />
+    <Content Include="Vista\pages\ver_ediciones.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -472,6 +474,13 @@
     </Compile>
     <Compile Include="Vista\pages\ver_articulos.aspx.designer.cs">
       <DependentUpon>ver_articulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\pages\ver_ediciones.aspx.cs">
+      <DependentUpon>ver_ediciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\pages\ver_ediciones.aspx.designer.cs">
+      <DependentUpon>ver_ediciones.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

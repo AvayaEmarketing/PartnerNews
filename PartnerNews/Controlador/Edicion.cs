@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using PartnerNews.Modelo;
+using System.Web.Script.Serialization;
+
 
 
 namespace PartnerNews.Controlador
@@ -117,8 +119,9 @@ namespace PartnerNews.Controlador
         }
 
         public void ingresarEdicion(int version,int toque,string Articulo, string edicion) {
+            Tipo_Ediciones class_tipo_ediciones = new Tipo_Ediciones();
             int id_Edicion = Convert.ToInt32(edicion);
-            
+            int idioma = class_tipo_ediciones.traerIdIdioma(id_Edicion);
             try
             {
                 Modelo.Edicion ed = new Modelo.Edicion();
@@ -127,6 +130,7 @@ namespace PartnerNews.Controlador
                 ed.Id_Toque = toque;
                 ed.Id_Edicion = id_Edicion;
                 ed.Articulos = Articulo;
+                ed.Idioma = idioma;
                 using (var ctx = new PartnerNewsEntities())
                 {
                     ctx.Edicions.Add(ed);
@@ -227,9 +231,40 @@ namespace PartnerNews.Controlador
             return nombres;
         }
 
+        public string traerEdiciones(int version,int toque) {
+            string resultado = "";
+            var listaEdiciones = context.Edicions.Where(e => e.Id_Version == version && e.Id_Toque == toque).ToList(); 
+            Idiomas clase_idioma = new Idiomas();
+            Secciones clase_seccion = new Secciones();
+            Versiones clase_versiones = new Versiones();
+            Ediciones clase_ediciones = new Ediciones();
 
+            try
+            {
+                var contenido = (from edicion in listaEdiciones
+                                 select new
+                                 {
+                                     Edition = clase_ediciones.obtenerNombreEdicion(Convert.ToInt32(edicion.Id_Edicion)),
+                                     Version = clase_versiones.getNombreVersion(Convert.ToInt32(edicion.Id_Version)),
+                                     Touch = edicion.Id_Toque,
+                                     Language = clase_idioma.nombreIdioma(Convert.ToInt32(edicion.Idioma)),
+                                     View = "<a href=\"#\" onclick=\"verEdicion(" + edicion.Id_Edicion + "); return false;\"><img src=\"../images/eye.png\"/></a>",
+                                     Edit = "<a href=\"#\" onclick=\"editarEdicion(" + edicion.Id_Edicion + "); return false;\"><img src=\"../images/edit.png\"/></a>",
+                                     Delete = "<a href=\"#\" onclick=\"borrarEdicion(" + edicion.Id_Edicion + "); return false;\"><img src=\"../images/delete.png\"/></a>",
+                                     Publish = "<a href=\"#\" onclick=\"publicarEdicion(" + edicion.Id_Edicion + "); return false;\"><img src=\"../images/edit.png\"/></a>"
+                                     
+                                 });
 
-
+                resultado = new JavaScriptSerializer().Serialize(contenido);
+            }
+            catch (Exception ex)
+            {
+                resultado = "fail";
+                utilidades.WriteError(ex.Message, "Controlador - Articulo.cs", "traerArticulo");
+            }
+           
+            return resultado;
+        }
 
     }
 

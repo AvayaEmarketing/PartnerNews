@@ -112,28 +112,13 @@ function traerInfoEditarArticulo(articulo) {
             $("#article_title").val(titulo);
             CKEDITOR.instances.txtCkEditor.setData(contenido);
             setSelectByValue("article_language", idioma);
-            
             setSelectByValue("article_section", seccion);
-
             validarDetalleSeccion2(seccion, Seccion_detalle);
-            
-            if (top_new == 'YES')
-                $("#article_top_new").prop('checked',true);
-            
-            if (editorial == 'YES')
-                $("#article_editorial").prop('checked',true);
-
-            if (visible == 'YES')
-                $("#article_visible").prop('checked',true);
-
-            if (destacada == 'YES')
-                $("#article_outstanding").prop('checked', true);
-
-            //setChecks("ediciones", edicion);
-           
+            if (top_new == 'YES') $("#article_top_new").prop('checked',true);
+            if (editorial == 'YES') $("#article_editorial").prop('checked',true);
+            if (visible == 'YES') $("#article_visible").prop('checked',true);
+            if (destacada == 'YES') $("#article_outstanding").prop('checked', true);
             cargarEdiciones2(edicion);
-
-
         },
         error: function () {
             message("Alert, please try again", "Partner News", "danger");
@@ -153,29 +138,6 @@ $(document).ready(function () {
     });
 
 });
-
-function setChecks(div_id, stringComma) {
-    var contenido = $('#' + div_id).html();
-
-    if (stringComma.indexOf(",") == -1) {
-        var ediciones = $("input[name='checkboxes']");
-        ediciones.each(function () {
-            if ($(this).val == stringComma) {
-                $(this).prop('checked', true);
-            }
-        });
-    } else {
-
-        var array = stringComma.split(",");
-        $.each(array, function (i) {
-            $('#' + div_id + ' input:checkbox').each(function () {
-                if ($(this).value == array[i]) {
-                    $(this).prop('checked', true);
-                }
-            });
-        });
-    }
-}
 
 function validarDetalleSeccion2(seccion, Seccion_detalle) {
     var datae = { 'seccion': seccion };

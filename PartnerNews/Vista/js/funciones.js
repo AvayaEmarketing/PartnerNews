@@ -89,11 +89,11 @@ $(document).ready(function () {
     });
 
     $("#gotoArticles").click(function () {
-        document.location.href = "ver_articulos.aspx?version=" + QueryString.version;
+        document.location.href = "ver_articulos.aspx?version=" + QueryString.version + "&toque=" + QueryString.toque;
     });
 
     $("#gotoEditions").click(function () {
-        document.location.href = "ver_ediciones.aspx?version=" + QueryString.version;
+        document.location.href = "ver_ediciones.aspx?version=" + QueryString.version + "&toque=" + QueryString.toque;
     });
 
     

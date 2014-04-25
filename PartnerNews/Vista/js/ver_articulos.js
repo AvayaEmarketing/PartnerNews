@@ -102,7 +102,7 @@ $(document).ready(function () {
 
     $("#gotoNewArticle").click(function () {
         var version = QueryString.version;
-        document.location.href = "crear_articulos.aspx?version=" + version;
+        document.location.href = "crear_articulos.aspx?version=" + QueryString.version + "&toque=" + QueryString.toque;
     });
 
     
@@ -110,7 +110,7 @@ $(document).ready(function () {
 
 function editarArticulo(articulo) {
     var version = QueryString.version;
-    document.location.href = "editar_articulos.aspx?version=" + version + "&articulo="+articulo;
+    document.location.href = "editar_articulos.aspx?version=" + QueryString.version + "&toque=" + QueryString.toque + "&articulo=" + articulo;
 }
 
 function detalleArticulo(articulo) {
